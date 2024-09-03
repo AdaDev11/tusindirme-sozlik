@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Túsindirme sózlik</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 1000px;
+            background-color: #688;
+        }
+
+        h1 {
+            color: #ff56;
+            align-items: center;
+            margin: 10px;
+            position: absolute;
+            top: 20px;
+            left: 470px;
+            font-size: 70px;
+        }
+
+        .content {
+            width: 100%;
+            min-height: 700px;
+            position: absolute;
+            top: 120px;
+            background-size: cover;
+            overflow: auto;
+        }
+
+        .accordion_div {
+            width: 94%;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 10px;
+            position: absolute;
+            left: 2.4%;
+        }
+
+        .btn {
+            width: 99.7%;
+            height: 90%;
+            border: 1px solid #ff56;
+            background-color: #fff;
+            margin: 3px;
+        }
+
+        .btn:hover {
+            background-color: #ff56;
+        }
+
+        .div {
+            width: 100%;
+            height: 90%;
+            border: 1px solid #ff56;
+            background-color: #fff;
+            border-radius: 5px;
+            display: none;
+            margin: 10px;
+            align-items: center;
+        }
+
+        .toogle {
+            display: block;
+        }
+
+        .flaer {
+            width: 90%;
+            height: 100px;
+            background-color: #fff;
+            margin: 100px;
+        }
+    </style>
+    <div class="container">
+        <h1>Túsindirme sózlik</h1>
+        <div class="content"></div>
+    </div>
+    <div class="flaer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti tenetur magnam
+        eligendi velit quo nesciunt, quaerat voluptatem mollitia, officiis quos repellat numquam nisi praesentium
+        explicabo magni deleniti incidunt! Adipisci consequatur excepturi illum esse soluta ipsam repellat iusto, hic
+        ducimus, quisquam, fuga tenetur nesciunt iure. Omnis quas voluptate quia quod non aliquam nobis, maxime magni
+        vero eligendi, ut recusandae commodi voluptas minima, quasi illo? Enim earum animi eum qui error corporis quas
+        placeat est alias, asperiores voluptate laborum rem aspernatur repudiandae nobis exercitationem facere? Est
+        voluptatum odit laboriosam, tenetur eaque pariatur consequatur, veritatis magnam architecto vitae, dolor error
+        expedita. Nemo!</div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const content = document.querySelector('.content');
+        let mass = [
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 1,
+                name: 'Authentication',
+                title: "Autentifikatsiyani bahalawda bul shaxstıń onlayn xızmet yamasa apparatqa kirisiwde kimga júkleniw procesin ańlatadı. Bir kiriwlerin óz ishine alǵan Multi Factor Authentication (MFA) kiberxavfsizlikning eń jaqsı ámeliyatı."
+            },
+            {
+                id: 2,
+                name: 'Antivirus',
+                title: 'Antivirustan júklengenler ushın fayllardı, saqlawdı támiyinlewdi ańlatadı., ol sizdi kompyuterińizdi tekseredi hám járdem kodın zıyansizlantirishga járdem beredi. Botnetlar, viruslar, keyloggerlar, tıńshılıq programmaları hám basqalar sıyaqlı kompyuter programmaların antivirus programmalıq támiynattan skanerlew hám sistemadan alıp taslawı múmkin.'
+            },
+            {
+                id: 3,
+                name: 'Backup',
+                title: 'Maǵlıwmatlardıń virtual rezerv nusqası yamasa fizikalıq nusqası bolıp, ol joǵalǵan yamasa óshirilgen táǵdirde onı qayta qayta tiklewge járdem beredi. Bul maǵlıwmatlar joǵatilishining aldın alıwdı texnologiyalıq rejesiniń bólimlerinen biri bolıp tabıladı.'
+            },
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+            {
+                id: 4,
+                name: 'Bring Your Own Device',
+                title: 'BYOD shaxsiy kompyuterlar yoki mobil qurilmalardan ish joyida sifatli ishlab chiqarish kompaniyalari kompaniya siyosatiga ishora qiladi.'
+            },
+
+
+        ];
+
+        const accordion_div = document.createElement('div');
+        accordion_div.classList.add('accordion_div');
+        content.appendChild(accordion_div);
+
+        function accordion(mass) {
+            mass.forEach(i => {
+                const btn = document.createElement('button');
+                const div = document.createElement('div');
+                btn.classList.add('btn');
+                div.classList.add('div');
+                accordion_div.appendChild(btn);
+                accordion_div.appendChild(div);
+                btn.innerText = `${i.id} ${i.name}`;
+                div.innerHTML = `${i.title}`;
+                btn.addEventListener('click', function () {
+                    div.classList.toggle('toogle');
+                })
+
+            })
+        }
+
+        accordion(mass);
+    </script>
+</body>
+
+</html>
